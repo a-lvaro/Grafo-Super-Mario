@@ -14,7 +14,3 @@ class Vertice:
 
         else:
             self.aresta.append(u)
-            print('teste')
-
-            for i in range(10):
-                print(i)
