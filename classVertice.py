@@ -14,3 +14,4 @@ class Vertice:
 
         else:
             self.aresta.append(u)
+            print('teste')
