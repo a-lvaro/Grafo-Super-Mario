@@ -1,0 +1,24 @@
+# Lista
+
+- [ ] criar matriz grafo
+- [ ] busca em largura
+- [ ] busca em profundidade
+- [ ] busca topológica
+- [ ] classe grafo
+- [ ] main
+
+# Ideias
+
+1 .. 52 (1, 52)
+
+YH (53), Sy (54), Sg (55), Sr (56), Sb (57)
+
+C1 (58), C2 (59), C3 (60), C4 (61) .. C9 (58, 67)
+
+F1 (68) .. F4 (68, 71)
+
+G1 (72), G2 (73), G3 (74) .. G6 (72, 77)
+
+P1 (78), P1' (79), P2 (80), P2' (81), P3 (82), P3' (83), P4 (84), P4' (85) .. P6 (78, 90)
+
+*1 (90), *2 (91) .. \*7 (90, 96)
