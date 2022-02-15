@@ -1,6 +1,6 @@
 from vertice import Vertice
 
-# teste
+
 class Grafo:
     def __init__(self, vertices: int):
         self.vertices = []
