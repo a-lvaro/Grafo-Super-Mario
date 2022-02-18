@@ -25,5 +25,3 @@ class Dfs:
                 self.dfsNext(self.grafo.vertices[vertice-1])
         self.cont = self.cont + 1
         v.volta = self.cont
-
-    pass
