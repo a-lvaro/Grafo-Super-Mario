@@ -14,7 +14,7 @@ class Grafo:
 
     # tirar as arestas da matriz e colocar em lista
     def createMario(self):
-        file = open('matriz2.csv')
+        file = open('matriz.csv')
         matrizMapa = loadtxt(file, delimiter=',', dtype=int8)
 
         for i in range(96):
