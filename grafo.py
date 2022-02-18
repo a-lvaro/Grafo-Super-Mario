@@ -1,19 +1,26 @@
 from vertice import Vertice
+from numpy import loadtxt, int8
 
 
 class Grafo:
-    def __init__(self, vertices: int):
+    def __init__(self):
         self.vertices = []
-        self.qtdVertices = vertices
+        self.qtdVertices = 96
 
-        for i in range(vertices):
+        for i in range(96):
             self.vertices.append(Vertice(i + 1))
 
-    def addAresta(self, u: int, v: int):
-        # grafo não orientado, os dois vértices precisam saber que estão ligados
-        if not v in self.vertices[u - 1].aresta:
-            self.vertices[u - 1].addAresta(u, v)
-            self.vertices[v - 1].addAresta(u, v)
+        self.createMario()
+
+    # tirar as arestas da matriz e colocar em lista
+    def createMario(self):
+        file = open('matriz2.csv')
+        matrizMapa = loadtxt(file, delimiter=',', dtype=int8)
+
+        for i in range(96):
+            for j in range(96):
+                if matrizMapa[i][j] == 1:
+                    self.vertices[i].setAresta(j + 1)
 
     def mostrarArestas(self):
         for vertice in self.vertices:

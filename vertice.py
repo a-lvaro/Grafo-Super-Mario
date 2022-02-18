@@ -8,9 +8,8 @@ class Vertice:
         self.aresta = []
         self.pai = inf
 
-    def addAresta(self, u: int, v: int):
-        if u == self.vertice:
-            self.aresta.append(v)
+    def setAresta(self, u: int):
+        self.aresta.append(u)
 
-        else:
-            self.aresta.append(u)
+    def setProfundidade(self):
+        pass
