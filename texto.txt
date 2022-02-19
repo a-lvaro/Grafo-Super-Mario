@@ -1,10 +1,11 @@
 # Lista
 
-- [ ] criar matriz grafo
+- [x] criar matriz grafo
 - [x] busca em largura
 - [x] busca em profundidade
-- [ ] busca topológica
+- [x] busca topológica
 - [ ] kruskal ou prim
+- [ ] relatório
 
 
 # Ideias
