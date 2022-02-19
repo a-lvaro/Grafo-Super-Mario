@@ -3,7 +3,7 @@ from cmath import inf
 
 class Bfs:
     def __init__(self, grafo: object, verticeInicio: int) -> None:
-        grafo.resetGrafoBfs()
+        grafo.resetGrafo()
         aux = []
 
         grafo.setProfundidade(verticeInicio, 0)

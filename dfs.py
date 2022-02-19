@@ -4,7 +4,7 @@ from cmath import inf
 class Dfs:
     def __init__(self, grafo: object, verticeInicio: int) -> None:
         self.cont = 0
-        grafo.resetGrafoDfs()
+        grafo.resetGrafo()
         self.cont = grafo.setIda(verticeInicio, self.cont)
 
         self.dfsNext(grafo, grafo.vertices[verticeInicio-1].vertice)

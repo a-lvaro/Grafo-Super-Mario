@@ -50,7 +50,7 @@ class Grafo:
         self.vertices[vertice - 1].profundidade = profundidade
 
     def setIda(self, vertice: int, cont: int) -> int:
-        cont = cont + 1
+        cont += 1
         self.vertices[vertice - 1].ida = cont
         return cont
 
@@ -80,12 +80,9 @@ class Grafo:
     def getVertice(self, vertice: int) -> int:
         return self.vertices[vertice - 1].vertice
 
-    def resetGrafoBfs(self):
+    def resetGrafo(self):
         for vertice in range(self.qtdVertices):
             self.setProfundidade(vertice, inf)
             self.setPai(vertice, inf)
-
-    def resetGrafoDfs(self):
-        for vertice in range(self.qtdVertices):
             self.setIda(vertice, inf)
             self.setVolta(vertice, inf)
