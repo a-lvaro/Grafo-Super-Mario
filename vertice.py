@@ -7,6 +7,8 @@ class Vertice:
         self.vertice = vertice
         self.aresta = []
         self.pai = inf
+        self.ida = inf
+        self.volta = inf
 
     def setAresta(self, u: int):
         self.aresta.append(u)

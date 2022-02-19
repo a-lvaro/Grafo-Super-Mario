@@ -4,5 +4,9 @@ from dfs import Dfs
 
 g = Grafo()
 bfs = Bfs(g, 53)
-
 g.mostrarProfundidade()
+
+print('')
+
+dfs = Dfs(g, 53)
+g.mostraIdaVolta()
