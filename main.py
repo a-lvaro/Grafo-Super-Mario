@@ -9,8 +9,6 @@ g = Grafo()
 
 print('\n')
 
-# oi vamo ve
-
 dfs = Dfs(g, 53)
 g.mostraIdaVolta()
 
