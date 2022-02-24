@@ -5,7 +5,6 @@
 - [x] busca em profundidade
 - [x] busca topológica
 - [ ] kruskal ou prim
-- [ ] Documentação
 - [ ] relatório
 
 
