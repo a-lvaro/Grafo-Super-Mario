@@ -8,7 +8,7 @@ class Grafo:
         self.vertices = []
         self.qtdVertices = 96
 
-        for i in range(96):
+        for i in range(self.qtdVertices):
             self.vertices.append(Vertice(i + 1))
 
         mapaMario(self.vertices)
