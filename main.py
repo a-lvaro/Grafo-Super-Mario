@@ -11,7 +11,7 @@ g = Grafo()
 # print()
 
 # dfs = Dfs(g, 53)
-# g.mostraIdaVolta()
+# dfs.mostrar()
 
 # print()
 
