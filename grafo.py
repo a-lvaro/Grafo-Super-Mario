@@ -13,6 +13,9 @@ class Grafo:
 
         mapaMario(self.vertices)
 
+    def getQtdVertices(self) -> int:
+        return self.qtdVertices
+
     def mostrarArestas(self):
         for vertice in self.vertices:
             print(vertice.getAresta())
