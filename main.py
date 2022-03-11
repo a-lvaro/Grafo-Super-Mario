@@ -10,11 +10,11 @@ g = Grafo()
 
 # print('\n')
 
-# dfs = Dfs(g, 53)
-# g.mostraIdaVolta()
+dfs = Dfs(g, 53)
+g.mostraIdaVolta()
 
 # print('\n')
 
-topologica = Topologica()
-listaTopologica = topologica.topologica(g, 53)
-print('Lista de vertices pela Ordenação Topológica: \n', listaTopologica)
+# topologica = Topologica()
+# listaTopologica = topologica.topologica(g, 53)
+# print('Lista de vertices pela Ordenação Topológica: \n', listaTopologica)
