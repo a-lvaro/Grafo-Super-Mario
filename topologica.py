@@ -17,7 +17,7 @@ class Topologica:
 
         for volta in range(len(self.listaVoltas)):
             for vertice in grafo.vertices:
-                if grafo.getProfundidadeDFS(vertice.getVertice(), 'volta') == self.listaVoltas[volta]:
+                if grafo.getProfundidade(vertice.getVertice(), 'volta') == self.listaVoltas[volta]:
                     self.listaVertices.append(vertice.getVertice())
                     print('Vertice: ', vertice.getVertice(),
                           ' - Valor de Volta: ', self.listaVoltas[volta])

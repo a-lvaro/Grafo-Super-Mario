@@ -31,10 +31,6 @@ class Grafo:
         para achar a localização dos vértices na lista será n - 1
         -------------------------------------------------------'''
 
-    def getProfundidadeDFS(self, vertice: int, flag: str) -> int:
-        if flag == 'volta':
-            return self.vertices[vertice - 1].profundidade[1]
-
     def setProfundidade(self, vertice: int, profundidade: int, flag='default') -> None:
         if flag == 'default':
             self.vertices[vertice - 1].setProfundidade(profundidade)
@@ -46,8 +42,12 @@ class Grafo:
         if flag == 'volta':
             self.vertices[vertice - 1].setProfundidade(profundidade, 1)
 
-    def getProfundidade(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].getProfundidade()
+    def getProfundidade(self, vertice: int, flag='default') -> int:
+        if flag == 'default':
+            return self.vertices[vertice - 1].getProfundidade()
+
+        if flag == 'volta':
+            return self.vertices[vertice - 1].profundidade[1]
 
     def getAdjacentes(self, vertice: int) -> list:
         return self.vertices[vertice - 1].getAresta()
