@@ -2,6 +2,7 @@ from cmath import inf
 from vertice import Vertice
 from mapaMario import mapaMario
 
+
 class Grafo:
     def __init__(self):
         self.vertices = []
@@ -30,22 +31,21 @@ class Grafo:
         para achar a localização dos vértices na lista será n - 1
         -------------------------------------------------------'''
 
-    def setProfundidadeDFS(self, vertice: int, cont: int, flag: str) -> int:
-
-        if flag == 'ida':
-            self.vertices[vertice - 1].profundidade = [cont, inf]
-
-        if flag == 'volta':
-            self.vertices[vertice - 1].profundidade[1] = cont
-
-        return cont
-
     def getProfundidadeDFS(self, vertice: int, flag: str) -> int:
         if flag == 'volta':
             return self.vertices[vertice - 1].profundidade[1]
 
-    def setProfundidade(self, vertice: int, profundidade: int) -> None:
-        self.vertices[vertice - 1].setProfundidade(profundidade)
+    def setProfundidade(self, vertice: int, profundidade: int, flag='default') -> None:
+        if flag == 'default':
+            self.vertices[vertice - 1].setProfundidade(profundidade)
+
+        # usado no dfs
+        if flag == 'ida':
+            self.vertices[vertice - 1].profundidade = [profundidade, inf]
+            # self.vertices[vertice - 1].setProfundidade(profundidade, )
+
+        if flag == 'volta':
+            self.vertices[vertice - 1].profundidade[1] = profundidade
 
     def getProfundidade(self, vertice: int) -> int:
         return self.vertices[vertice - 1].getProfundidade()

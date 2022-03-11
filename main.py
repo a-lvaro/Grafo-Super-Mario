@@ -5,15 +5,15 @@ from topologica import Topologica
 
 
 g = Grafo()
-# bfs = Bfs(g, 53)
-# g.mostrarProfundidade()
+bfs = Bfs(g, 53)
+g.mostrarProfundidade()
 
-# print('\n')
+# print()
 
-dfs = Dfs(g, 53)
-g.mostraIdaVolta()
+# dfs = Dfs(g, 53)
+# g.mostraIdaVolta()
 
-# print('\n')
+# print()
 
 # topologica = Topologica()
 # listaTopologica = topologica.topologica(g, 53)
