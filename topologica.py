@@ -1,6 +1,5 @@
-from matplotlib.pyplot import axis
 from dfs import Dfs
-from numpy import sort, array, argsort
+from numpy import array
 
 
 class Topologica:
