@@ -16,8 +16,13 @@ g = Grafo()
 
 # print()
 
+<<<<<<< HEAD
 # topologica = Topologica()
 # listaTopologica = topologica.topologica(g, 53)
 # print('Lista de vertices pela Ordenação Topológica: \n', listaTopologica)
 
 prim = Prim(g, 53)
+=======
+topologica = Topologica(g, 53)
+topologica.mostrar()
+>>>>>>> d9f035a784107ae809604bb35cd46990dccf3a38

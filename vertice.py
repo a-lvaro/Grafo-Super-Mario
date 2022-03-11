@@ -3,7 +3,7 @@ from cmath import inf
 
 class Vertice:
     def __init__(self, vertice) -> None:
-        self.profundidade = inf
+        self.__profundidade = inf
         self.__vertice = vertice
         self.__aresta = []
 
@@ -16,16 +16,20 @@ class Vertice:
     def getVertice(self) -> int:
         return self.__vertice
 
-    def setProfundidade(self, profundidade: int, position='default') -> None:
-        if position == 'default':
-            self.profundidade = profundidade
+    def setProfundidade(self, profundidade: int, flag = 'default') -> None:
+        if flag == 'default':
+            self.__profundidade = profundidade
 
         # usado no dfs
-        if position == 0:
-            self.profundidade[0] = profundidade
+        if flag == 'ida':
+            self.__profundidade[0] = profundidade
 
-        if position == 1:
-            self.profundidade[1] = profundidade
+        if flag == 'volta':
+            self.__profundidade[1] = profundidade
 
-    def getProfundidade(self) -> int:
-        return self.profundidade
+    def getProfundidade(self, flag='default') -> int:
+        if flag == 'default':
+            return self.__profundidade
+
+        if flag == 'volta':
+            return self.__profundidade[1]
