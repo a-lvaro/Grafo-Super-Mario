@@ -5,18 +5,20 @@ class Dfs:
     def __init__(self, grafo: object, verticeInicio: int) -> None:
         self.cont = 0
         grafo.resetGrafo()
-        self.cont = grafo.setIda(verticeInicio, self.cont)
 
-        self.dfsNext(grafo, grafo.vertices[verticeInicio-1].vertice)
+        self.cont = grafo.setProfundidadeDFS(verticeInicio, self.cont, 'ida')
+
+        self.dfsNext(grafo, grafo.vertices[verticeInicio-1].getVertice())
 
         for vertice in grafo.vertices:
-            if grafo.getIda(verticeInicio) == inf:
+            if grafo.getProfundidade(verticeInicio) == inf:
                 self.dfsNext(grafo, vertice.vertice)
 
     def dfsNext(self, grafo: object, vertice: int) -> None:
         for verticeAdj in grafo.getAdjacentes(vertice):
-            if grafo.getIda(verticeAdj) == inf:
-                self.cont = grafo.setIda(verticeAdj, self.cont)
+            if grafo.getProfundidade(verticeAdj) == inf:
+                self.cont = grafo.setProfundidadeDFS(
+                    verticeAdj, self.cont, 'ida')
                 self.dfsNext(grafo, verticeAdj)
 
-        self.cont = grafo.setVolta(vertice, self.cont)
+        self.cont = grafo.setProfundidadeDFS(vertice, self.cont, 'volta')

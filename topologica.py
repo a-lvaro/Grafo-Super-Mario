@@ -1,4 +1,3 @@
-from grafo import Grafo
 from dfs import Dfs
 
 
@@ -11,15 +10,16 @@ class Topologica:
         dfs = Dfs(grafo, verticeInicial)
 
         for vertice in grafo.vertices:
-            self.listaVoltas.append(grafo.getVolta(vertice.vertice))
+            self.listaVoltas.append(grafo.getProfundidadeDFS(
+                vertice.getVertice(), 'volta'))
 
         self.listaVoltas.sort(reverse=True)
 
         for volta in range(len(self.listaVoltas)):
             for vertice in grafo.vertices:
-                if grafo.getVolta(vertice.vertice) == self.listaVoltas[volta]:
-                    self.listaVertices.append(vertice.vertice)
-                    print('Vertice: ', vertice.vertice,
+                if grafo.getProfundidadeDFS(vertice.getVertice(), 'volta') == self.listaVoltas[volta]:
+                    self.listaVertices.append(vertice.getVertice())
+                    print('Vertice: ', vertice.getVertice(),
                           ' - Valor de Volta: ', self.listaVoltas[volta])
 
         return self.listaVertices

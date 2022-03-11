@@ -1,6 +1,6 @@
 from cmath import inf
 from vertice import Vertice
-from numpy import loadtxt, int8
+from mapaMario import mapaMario
 
 
 class Grafo:
@@ -11,78 +11,53 @@ class Grafo:
         for i in range(96):
             self.vertices.append(Vertice(i + 1))
 
-        self.createMario()
-
-    # tirar as arestas da matriz e colocar em lista
-    def createMario(self):
-        file = open('matriz.csv')
-        matrizMapa = loadtxt(file, delimiter=',', dtype=int8)
-
-        for i in range(96):
-            for j in range(96):
-                if matrizMapa[i][j] == 1:
-                    self.vertices[i].setAresta(j + 1)
+        mapaMario(self.vertices)
 
     def mostrarArestas(self):
         for vertice in self.vertices:
-            print(vertice.aresta)
+            print(vertice.getAresta())
 
     def mostrarProfundidade(self):
         for vertice in self.vertices:
             print('Profundidade do Vertice ',
-                  vertice.vertice, ': ', vertice.profundidade)
-
-    def mostrarPai(self):
-        for vertice in self.vertices:
-            print(vertice.vertice, 'pai: ', vertice.pai)
+                  vertice.getVertice(), ': ', vertice.getProfundidade())
 
     def mostraIdaVolta(self):
         for vertice in self.vertices:
-            print('Ida/Volta do Vertice', vertice.vertice,
-                  ': ', vertice.ida, '/', vertice.volta)
+            print('Ida/Volta do Vertice', vertice.getProfundidade())
 
     '''--------------------------------------------------------
         como a lista começa em 0 e os vértices em 1,
         para achar a localização dos vértices na lista será n - 1
         -------------------------------------------------------'''
 
-    def setProfundidade(self, vertice: int, profundidade: int) -> None:
-        self.vertices[vertice - 1].profundidade = profundidade
-
-    def setIda(self, vertice: int, cont: int) -> int:
+    def setProfundidadeDFS(self, vertice: int, cont: int, flag: str) -> int:
         cont += 1
-        self.vertices[vertice - 1].ida = cont
+
+        if flag == 'ida':
+            self.vertices[vertice - 1].profundidade = [cont, inf]
+
+        if flag == 'volta':
+            self.vertices[vertice - 1].profundidade[1] = cont
+
         return cont
 
-    def setVolta(self, vertice: int, cont: int) -> None:
-        cont = cont + 1
-        self.vertices[vertice - 1].volta = cont
-        return cont
+    def getProfundidadeDFS(self, vertice: int, flag: str) -> int:
+        if flag == 'volta':
+            return self.vertices[vertice - 1].profundidade[1]
+
+    def setProfundidade(self, vertice: int, profundidade: int) -> None:
+        self.vertices[vertice - 1].setProfundidade(profundidade)
 
     def getProfundidade(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].profundidade
+        return self.vertices[vertice - 1].getProfundidade()
 
     def getAdjacentes(self, vertice: int) -> list:
-        return self.vertices[vertice - 1].aresta
-
-    def setPai(self, vertice: int, pai: int) -> None:
-        self.vertices[vertice - 1].pai = pai
-
-    def getPai(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].pai
-
-    def getIda(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].ida
-
-    def getVolta(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].volta
+        return self.vertices[vertice - 1].getAresta()
 
     def getVertice(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].vertice
+        return self.vertices[vertice - 1].getVertice()
 
     def resetGrafo(self):
         for vertice in range(self.qtdVertices):
             self.setProfundidade(vertice, inf)
-            self.setPai(vertice, inf)
-            self.setIda(vertice, inf)
-            self.setVolta(vertice, inf)
