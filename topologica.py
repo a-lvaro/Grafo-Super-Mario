@@ -7,7 +7,7 @@ class Topologica:
         self.listaVertices = []
 
     def topologica(self, grafo: object, verticeInicial: int) -> list:
-        dfs = Dfs(grafo, verticeInicial)
+        Dfs(grafo, verticeInicial)
 
         for vertice in grafo.vertices:
             self.listaVoltas.append(grafo.getProfundidadeDFS(
