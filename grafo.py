@@ -47,7 +47,7 @@ class Grafo:
             return self.vertices[vertice - 1].getProfundidade()
 
         if flag == 'volta':
-            return self.vertices[vertice - 1].profundidade[1]
+            return self.vertices[vertice - 1].getProfundidade(1)
 
     def getAdjacentes(self, vertice: int) -> list:
         return self.vertices[vertice - 1].getAresta()

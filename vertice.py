@@ -27,5 +27,9 @@ class Vertice:
         if position == 1:
             self.profundidade[1] = profundidade
 
-    def getProfundidade(self) -> int:
-        return self.profundidade
+    def getProfundidade(self, flag='default') -> int:
+        if flag == 'default':
+            return self.profundidade
+
+        if flag == 'volta':
+            return self.profundidade[1]
