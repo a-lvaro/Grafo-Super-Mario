@@ -41,11 +41,10 @@ class Grafo:
 
         # usado no dfs
         if flag == 'ida':
-            self.vertices[vertice - 1].profundidade = [profundidade, inf]
-            # self.vertices[vertice - 1].setProfundidade(profundidade, )
+            self.vertices[vertice - 1].setProfundidade([profundidade, inf])
 
         if flag == 'volta':
-            self.vertices[vertice - 1].profundidade[1] = profundidade
+            self.vertices[vertice - 1].setProfundidade(profundidade, 1)
 
     def getProfundidade(self, vertice: int) -> int:
         return self.vertices[vertice - 1].getProfundidade()
