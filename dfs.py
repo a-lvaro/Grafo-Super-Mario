@@ -23,3 +23,7 @@ class Dfs:
 
         self.cont += 1
         grafo.setProfundidade(vertice, self.cont, 'volta')
+
+    def mostrar(self):
+        for vertice in self.vertices:
+            print('Ida/Volta do Vertice', vertice.getProfundidade())

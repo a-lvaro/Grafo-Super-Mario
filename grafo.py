@@ -22,10 +22,6 @@ class Grafo:
             print('Profundidade do Vertice ',
                   vertice.getVertice(), ': ', vertice.getProfundidade())
 
-    def mostraIdaVolta(self):
-        for vertice in self.vertices:
-            print('Ida/Volta do Vertice', vertice.getProfundidade())
-
     '''--------------------------------------------------------
         como a lista começa em 0 e os vértices em 1,
         para achar a localização dos vértices na lista será n - 1
@@ -40,14 +36,14 @@ class Grafo:
             self.vertices[vertice - 1].setProfundidade([profundidade, inf])
 
         if flag == 'volta':
-            self.vertices[vertice - 1].setProfundidade(profundidade, 1)
+            self.vertices[vertice - 1].setProfundidade(profundidade, 'volta')
 
     def getProfundidade(self, vertice: int, flag='default') -> int:
         if flag == 'default':
             return self.vertices[vertice - 1].getProfundidade()
 
         if flag == 'volta':
-            return self.vertices[vertice - 1].getProfundidade(1)
+            return self.vertices[vertice - 1].getProfundidade('volta')
 
     def getAdjacentes(self, vertice: int) -> list:
         return self.vertices[vertice - 1].getAresta()
