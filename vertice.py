@@ -16,8 +16,16 @@ class Vertice:
     def getVertice(self) -> int:
         return self.__vertice
 
-    def setProfundidade(self, profundidade: int) -> None:
-        self.profundidade = profundidade
+    def setProfundidade(self, profundidade: int, position='default') -> None:
+        if position == 'default':
+            self.profundidade = profundidade
+
+        # usado no dfs
+        if position == 0:
+            self.profundidade[0] = profundidade
+
+        if position == 1:
+            self.profundidade[1] = profundidade
 
     def getProfundidade(self) -> int:
         return self.profundidade
