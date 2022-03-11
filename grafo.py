@@ -2,7 +2,6 @@ from cmath import inf
 from vertice import Vertice
 from mapaMario import mapaMario
 
-
 class Grafo:
     def __init__(self):
         self.vertices = []
@@ -32,7 +31,6 @@ class Grafo:
         -------------------------------------------------------'''
 
     def setProfundidadeDFS(self, vertice: int, cont: int, flag: str) -> int:
-        cont += 1
 
         if flag == 'ida':
             self.vertices[vertice - 1].profundidade = [cont, inf]
