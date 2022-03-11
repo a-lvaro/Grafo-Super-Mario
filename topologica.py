@@ -15,8 +15,8 @@ class Topologica:
                 vertice.getVertice(), 'volta')])
 
         self.listaVoltas = array(self.listaVoltas)
-        self.listaVoltas = self.listaVoltas[self.listaVoltas[:, 1].argsort(
-        )][::-1]
+        self.listaVoltas = self.listaVoltas[self.listaVoltas[:, 1].argsort(kind='quicksort'
+                                                                           )][::-1]
 
     def mostrar(self) -> None:
         print('\nLista de vertices pela Ordenação Topológica: \n',
