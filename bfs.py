@@ -2,18 +2,25 @@ from cmath import inf
 
 
 class Bfs:
-    def __init__(self, grafo: object, verticeInicio: int) -> None:
-        grafo.resetGrafo()
+    def __init__(self, vertices: list, posicao: int) -> None:
         aux = []
 
-        grafo.setProfundidade(verticeInicio, 0)
-        aux.append(verticeInicio)
+        vertices[posicao].setProfundidade(0)
+        aux.append(posicao)
 
         while aux:
             u = aux.pop(0)
 
-            for vertice in grafo.getAdjacentes(u):
-                if grafo.getProfundidade(vertice) == inf:
-                    aux.append(vertice)
-                    grafo.setProfundidade(
-                        vertice, grafo.getProfundidade(u) + 1)
+            for aresta in vertices[u].getAresta():
+                aresta -= 1
+                if vertices[aresta].getProfundidade() == inf:
+                    aux.append(aresta)
+                    vertices[aresta].setProfundidade(
+                        vertices[u].getProfundidade() + 1)
+
+        self.mostrar(vertices)
+
+    def mostrar(self, vertices: list) -> None:
+        for vertice in vertices:
+            print('Profundidade do Vertice ',
+                  vertice.getVertice(), ': ', vertice.getProfundidade())

@@ -2,28 +2,32 @@ from cmath import inf
 
 
 class Dfs:
-    def __init__(self, grafo: object, verticeInicio: int) -> None:
+    def __init__(self, vertices: list, posicao: int) -> None:
         self.cont = 0
-        grafo.resetGrafo()
         self.cont += 1
-        grafo.setProfundidade(verticeInicio, self.cont, 'ida')
 
-        self.dfsNext(grafo, grafo.vertices[verticeInicio-1].getVertice())
+        vertices[posicao].setProfundidade(self.cont, 'ida')
 
-        for vertice in grafo.vertices:
-            if grafo.getProfundidade(verticeInicio) == inf:
-                self.dfsNext(grafo, vertice.vertice)
+        self.dfsNext(vertices, vertices[posicao].getVertice() - 1)
 
-    def dfsNext(self, grafo: object, vertice: int) -> None:
-        for verticeAdj in grafo.getAdjacentes(vertice):
-            if grafo.getProfundidade(verticeAdj) == inf:
+        for vertice in vertices:
+            if vertices[posicao].getProfundidade() == inf:
+                self.dfsNext(vertices, vertice.getVertice() - 1)
+
+        self.mostrar(vertices)
+
+    def dfsNext(self, vertices: list, posicao: int) -> None:
+
+        for verticeAdj in vertices[posicao].getAresta():
+            verticeAdj -= 1
+            if vertices[verticeAdj].getProfundidade() == inf:
                 self.cont += 1
-                grafo.setProfundidade(verticeAdj, self.cont, 'ida')
-                self.dfsNext(grafo, verticeAdj)
+                vertices[verticeAdj].setProfundidade(self.cont, 'ida')
+                self.dfsNext(vertices, verticeAdj)
 
         self.cont += 1
-        grafo.setProfundidade(vertice, self.cont, 'volta')
+        vertices[posicao].setProfundidade(self.cont, 'volta')
 
-    def mostrar(self):
-        for vertice in self.vertices:
+    def mostrar(self, vertices: list):
+        for vertice in vertices:
             print('Ida/Volta do Vertice', vertice.getProfundidade())

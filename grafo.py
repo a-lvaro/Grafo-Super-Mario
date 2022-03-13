@@ -1,6 +1,9 @@
 from cmath import inf
 from vertice import Vertice
 from mapaMario import MapaMario
+from bfs import Bfs
+from dfs import Dfs
+from topologica import Topologica
 
 
 class Grafo:
@@ -25,34 +28,27 @@ class Grafo:
             print('Profundidade do Vertice ',
                   vertice.getVertice(), ': ', vertice.getProfundidade())
 
+    def bfs(self, verticeInicio: int):
+        # self.resetGrafo()
+        Bfs(self.vertices, verticeInicio - 1)
+
+    def dfs(self, verticeInicio: int):
+        # self.resetGrafo()
+        Dfs(self.vertices, verticeInicio - 1)
+
+    def topologia(self, verticeInicio: int):
+        # self.resetGrafo()
+        Topologica(self.vertices, verticeInicio - 1)
+
+    def mostraIdaVolta(self):
+        for vertice in self.vertices:
+            print('Ida/Volta do Vertice {} : {}'.format(vertice.getVertice(),
+                  vertice.getProfundidade()))
+
     '''--------------------------------------------------------
         como a lista começa em 0 e os vértices em 1,
         para achar a localização dos vértices na lista será n - 1
         -------------------------------------------------------'''
-
-    def setProfundidade(self, vertice: int, profundidade: int, flag='default') -> None:
-        if flag == 'default':
-            self.vertices[vertice - 1].setProfundidade(profundidade)
-
-        # usado no dfs
-        if flag == 'ida':
-            self.vertices[vertice - 1].setProfundidade([profundidade, inf])
-
-        if flag == 'volta':
-            self.vertices[vertice - 1].setProfundidade(profundidade, 'volta')
-
-    def getProfundidade(self, vertice: int, flag='default') -> int:
-        if flag == 'default':
-            return self.vertices[vertice - 1].getProfundidade()
-
-        if flag == 'volta':
-            return self.vertices[vertice - 1].getProfundidade('volta')
-
-    def getAdjacentes(self, vertice: int) -> list:
-        return self.vertices[vertice - 1].getAresta()
-
-    def getVertice(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].getVertice()
 
     def resetGrafo(self):
         for vertice in range(self.qtdVertices):

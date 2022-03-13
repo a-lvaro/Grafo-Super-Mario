@@ -6,15 +6,16 @@ from topologica import Topologica
 
 
 g = Grafo()
-# bfs = Bfs(g, 53)
-# g.mostrarProfundidade()
+# g.bfs(53)
+# g.mostrarProfundidade() -- não precisa usar
 
 # print()
 
-# dfs = Dfs(g, 53)
-# dfs.mostrar()
+# g.dfs(53)
+# g.mostraIdaVolta() -- não precisa usar
 
 # print()
 
-topologica = Topologica(g, 53)
-topologica.mostrar()
+
+g.topologia(53)
+# g.mostrarTopologica() -- não precisa usar
