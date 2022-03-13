@@ -6,6 +6,8 @@ class Vertice:
         self.__profundidade = inf
         self.__vertice = vertice
         self.__aresta = []
+        self.__pai = inf
+        self.__filho = inf
 
     def setAresta(self, u: int) -> None:
         self.__aresta.append(u)
@@ -33,3 +35,15 @@ class Vertice:
 
         if flag == 'volta':
             return self.__profundidade[1]
+
+    def setPai(self, pai: int) -> None:
+        self.__pai = pai
+
+    def getPai(self) -> int:
+        return self.__pai
+
+    def setFilho(self, filho: int) -> None:
+        self.__filho = filho
+
+    def getFilho(self) -> int:
+        return self.__filho

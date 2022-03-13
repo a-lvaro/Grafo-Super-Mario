@@ -15,8 +15,7 @@ class Bfs:
                 aresta -= 1
                 if vertices[aresta].getProfundidade() == inf:
                     aux.append(aresta)
-                    vertices[aresta].setProfundidade(
-                        vertices[u].getProfundidade() + 1)
+                    vertices[aresta].setProfundidade(vertices[u].getProfundidade() + 1)
 
         self.mostrar(vertices)
 

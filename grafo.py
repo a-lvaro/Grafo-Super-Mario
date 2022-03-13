@@ -4,6 +4,7 @@ from mapaMario import MapaMario
 from bfs import Bfs
 from dfs import Dfs
 from topologica import Topologica
+from prim import Prim
 
 
 class Grafo:
@@ -39,6 +40,9 @@ class Grafo:
     def topologia(self, verticeInicio: int):
         # self.resetGrafo()
         Topologica(self.vertices, verticeInicio - 1)
+
+    def prim(self, verticeInicio: int):
+        Prim(self.vertices, verticeInicio - 1)
 
     def mostraIdaVolta(self):
         for vertice in self.vertices:

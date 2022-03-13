@@ -17,5 +17,7 @@ g = Grafo()
 # print()
 
 
-g.topologia(53)
+# g.topologia(53)
 # g.mostrarTopologica() -- não precisa usar
+
+g.prim(53)
