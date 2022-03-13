@@ -6,6 +6,21 @@ class Vertice:
         self.__profundidade = inf
         self.__vertice = vertice
         self.__aresta = []
+        self.pai = inf
+        self.filho = inf
+
+    def setPai(self, pai: int) -> None:
+        self.pai = pai
+
+    def getPai(self) -> int:    
+        return self.pai
+
+    def setFilho(self, filho: int) -> None:
+        self.filho = filho
+
+    def getFilho(self) -> int:    
+        return self.filho
+
 
     def setAresta(self, u: int) -> None:
         self.__aresta.append(u)
@@ -16,7 +31,7 @@ class Vertice:
     def getVertice(self) -> int:
         return self.__vertice
 
-    def setProfundidade(self, profundidade: int, flag = 'default') -> None:
+    def setProfundidade(self, profundidade: int, flag='default') -> None:
         if flag == 'default':
             self.__profundidade = profundidade
 

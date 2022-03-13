@@ -3,6 +3,7 @@ from bfs import Bfs
 from dfs import Dfs
 from prim import Prim
 from topologica import Topologica
+from prim2 import Prim2
 
 
 g = Grafo()
@@ -16,5 +17,7 @@ g = Grafo()
 
 # print()
 
-topologica = Topologica(g, 53)
-topologica.mostrar()
+# topologica = Topologica(g, 53)
+# topologica.mostrar()
+
+Prim2(g, 1, 53)

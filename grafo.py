@@ -57,3 +57,15 @@ class Grafo:
     def resetGrafo(self):
         for vertice in range(self.qtdVertices):
             self.setProfundidade(vertice, inf)
+
+    def setPai(self, vertice: int, pai: int) -> None:
+        self.vertices[vertice - 1].pai = pai
+
+    def getPai(self, vertice: int) -> int:
+        return self.vertices[vertice - 1].pai
+
+    def setFilho(self, vertice: int, filho: int) -> None:
+        self.vertices[vertice - 1].filho = filho
+
+    def getFilho(self, vertice: int) -> int:
+        return self.vertices[vertice - 1].filho
