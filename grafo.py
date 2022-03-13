@@ -1,6 +1,6 @@
 from cmath import inf
 from vertice import Vertice
-from mapaMario import mapaMario
+from mapaMario import MapaMario
 
 
 class Grafo:
@@ -11,7 +11,7 @@ class Grafo:
         for i in range(self.qtdVertices):
             self.vertices.append(Vertice(i + 1))
 
-        mapaMario(self.vertices)
+        MapaMario(self.vertices)
 
     def getQtdVertices(self) -> int:
         return self.qtdVertices

@@ -1,7 +1,7 @@
 from numpy import loadtxt, int8
 
 
-class mapaMario:
+class MapaMario:
     # tirar as arestas da matriz e colocar em lista
     def __init__(self, vertices: list):
         file = open('matriz.csv')
