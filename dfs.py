@@ -3,8 +3,7 @@ from cmath import inf
 
 class Dfs:
     def __init__(self, vertices: list, posicao: int) -> None:
-        self.cont = 0
-        self.cont += 1
+        self.cont = 1
 
         vertices[posicao].setProfundidade(self.cont, 'ida')
 
@@ -30,4 +29,5 @@ class Dfs:
 
     def mostrar(self, vertices: list):
         for vertice in vertices:
-            print('Ida/Volta do Vertice', vertice.getProfundidade())
+            print('Ida/Volta do Vertice {} : {}'.format(vertice.getVertice(),
+                  vertice.getProfundidade()))

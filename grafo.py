@@ -17,18 +17,6 @@ class Grafo:
 
         MapaMario(self.vertices)
 
-    def getQtdVertices(self) -> int:
-        return self.qtdVertices
-
-    def mostrarArestas(self):
-        for vertice in self.vertices:
-            print(vertice.getAresta())
-
-    def mostrarProfundidade(self):
-        for vertice in self.vertices:
-            print('Profundidade do Vertice ',
-                  vertice.getVertice(), ': ', vertice.getProfundidade())
-
     def bfs(self, verticeInicio: int):
         # self.resetGrafo()
         Bfs(self.vertices, verticeInicio - 1)
@@ -38,7 +26,8 @@ class Grafo:
         Dfs(self.vertices, verticeInicio - 1)
 
     def topologia(self, verticeInicio: int):
-        # self.resetGrafo()
+
+        self.__resetGrafo()
         Topologica(self.vertices, verticeInicio - 1)
 
     def prim(self, verticeInicio: int):
@@ -54,6 +43,6 @@ class Grafo:
         para achar a localização dos vértices na lista será n - 1
         -------------------------------------------------------'''
 
-    def resetGrafo(self):
-        for vertice in range(self.qtdVertices):
-            self.setProfundidade(vertice, inf)
+    def __resetGrafo(self):
+        for posicao in range(self.qtdVertices):
+            self.vertices[posicao].setProfundidade(inf)

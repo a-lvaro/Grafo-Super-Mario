@@ -5,7 +5,6 @@ from numpy import array
 class Topologica:
     def __init__(self, vertices: list, posicao: int) -> list:
         self.listaVoltas = []
-        self.listaVertices = []
 
         Dfs(vertices, posicao)
 
@@ -20,5 +19,8 @@ class Topologica:
         self.mostrar()
 
     def mostrar(self) -> None:
-        print('\nLista de vertices pela Ordenação Topológica: \n',
-              self.listaVoltas)
+        print('\n\nLista de vertices pela Ordenação Topológica: \n')
+
+        for vertice, profundidade in self.listaVoltas:
+            print('Vértice     {}      :       Profundidade     {}'.format(
+                vertice, profundidade))
