@@ -15,11 +15,14 @@ class Bfs:
                 aresta -= 1
                 if vertices[aresta].getProfundidade() == inf:
                     aux.append(aresta)
-                    vertices[aresta].setProfundidade(vertices[u].getProfundidade() + 1)
+                    vertices[aresta].setProfundidade(
+                        vertices[u].getProfundidade() + 1)
 
         self.mostrar(vertices)
 
     def mostrar(self, vertices: list) -> None:
+
+        print('\n\nBFS: busca por largura')
         for vertice in vertices:
             print('Profundidade do Vertice ',
                   vertice.getVertice(), ': ', vertice.getProfundidade())

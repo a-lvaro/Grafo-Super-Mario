@@ -4,20 +4,40 @@ from dfs import Dfs
 from prim import Prim
 from topologica import Topologica
 
+'''
+    DESENVOLVEDORES:
+
+        Álvaro de Araújo    ra 120113
+        Rômulo Barreto      ra 117774
+
+
+    Trabalho I de Grafos em Super Mario World
+    Professor Felippe Fernandes da Silva
+
+'''
 
 g = Grafo()
-# g.bfs(53)
-# g.mostrarProfundidade() -- não precisa usar
 
-# print()
 
-# g.dfs(53)
-# g.mostraIdaVolta() -- não precisa usar
+g.bfs(53)
 
-# print()
+
+input('\nPressione enter para continuar \n')
+
+
+g.dfs(53)
+
+
+input('\nPressione enter para continuar \n')
 
 
 g.topologia(53)
-# g.mostrarTopologica() -- não precisa usar
 
-# g.prim(53)
+
+input('\nPressione enter para continuar \n')
+
+
+g.prim(53)
+
+
+input('\nPressione enter para continuar \n')

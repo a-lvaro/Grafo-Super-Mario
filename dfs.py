@@ -28,6 +28,8 @@ class Dfs:
         vertices[posicao].setProfundidade(self.cont, 'volta')
 
     def mostrar(self, vertices: list):
+
+        print('\n\nDFS: busca em profundidade: \n')
         for vertice in vertices:
             print('Ida/Volta do Vertice {} : {}'.format(vertice.getVertice(),
                   vertice.getProfundidade()))

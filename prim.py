@@ -24,6 +24,8 @@ class Prim:
 
     def mostrar(self, vertices: list):
 
+        print('\n\nPRIM: menor caminho do vértice 53 ao vértice 96 \n')
+
         posicao = self.posicao
         while posicao:
             print(vertices[posicao].getVertice())

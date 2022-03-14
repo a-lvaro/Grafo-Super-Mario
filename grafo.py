@@ -12,37 +12,28 @@ class Grafo:
         self.vertices = []
         self.qtdVertices = 96
 
-        for i in range(self.qtdVertices):
-            self.vertices.append(Vertice(i + 1))
+        self.vertices = [Vertice(i + 1) for i in range(self.qtdVertices)]
 
         MapaMario(self.vertices)
 
     def bfs(self, verticeInicio: int):
-        # self.resetGrafo()
+        self.__resetGrafo()
         Bfs(self.vertices, verticeInicio - 1)
 
     def dfs(self, verticeInicio: int):
-        # self.resetGrafo()
+        self.__resetGrafo()
         Dfs(self.vertices, verticeInicio - 1)
 
     def topologia(self, verticeInicio: int):
-
         self.__resetGrafo()
         Topologica(self.vertices, verticeInicio - 1)
 
     def prim(self, verticeInicio: int):
+        self.__resetGrafo()
         Prim(self.vertices, verticeInicio - 1)
-
-    def mostraIdaVolta(self):
-        for vertice in self.vertices:
-            print('Ida/Volta do Vertice {} : {}'.format(vertice.getVertice(),
-                  vertice.getProfundidade()))
-
-    '''--------------------------------------------------------
-        como a lista começa em 0 e os vértices em 1,
-        para achar a localização dos vértices na lista será n - 1
-        -------------------------------------------------------'''
 
     def __resetGrafo(self):
         for posicao in range(self.qtdVertices):
             self.vertices[posicao].setProfundidade(inf)
+            self.vertices[posicao].setPai(inf)
+            self.vertices[posicao].setFilho(inf)
