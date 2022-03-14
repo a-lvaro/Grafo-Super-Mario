@@ -9,11 +9,11 @@ class Vertice:
         self.__pai = inf
         self.__filho = inf
 
-    def setAresta(self, u: int) -> None:
-        self.__aresta.append(u)
+    def setAresta(self, u: int, peso: int) -> None:
+        self.__aresta.append([u, peso])
 
     def getAresta(self) -> list:
-        return self.__aresta
+        return [i[0] for i in self.__aresta]
 
     def getVertice(self) -> int:
         return self.__vertice

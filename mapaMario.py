@@ -10,4 +10,4 @@ class MapaMario:
         for i in range(96):
             for j in range(96):
                 if matrizMapa[i][j] == 1:
-                    vertices[i].setAresta(j + 1)
+                    vertices[i].setAresta(j + 1, matrizMapa[i][j])
