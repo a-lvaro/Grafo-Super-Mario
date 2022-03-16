@@ -1,6 +1,10 @@
 from cmath import inf
 from vertice import Vertice
 from mapaMario import MapaMario
+from bfs import Bfs
+from dfs import Dfs
+from topologica import Topologica
+from prim import Prim
 
 
 class Grafo:
@@ -8,64 +12,28 @@ class Grafo:
         self.vertices = []
         self.qtdVertices = 96
 
-        for i in range(self.qtdVertices):
-            self.vertices.append(Vertice(i + 1))
+        self.vertices = [Vertice(i + 1) for i in range(self.qtdVertices)]
 
         MapaMario(self.vertices)
 
-    def getQtdVertices(self) -> int:
-        return self.qtdVertices
+    def bfs(self, verticeInicio: int):
+        self.__resetGrafo()
+        Bfs(self.vertices, verticeInicio - 1)
 
-    def mostrarArestas(self):
-        for vertice in self.vertices:
-            print(vertice.getAresta())
+    def dfs(self, verticeInicio: int):
+        self.__resetGrafo()
+        Dfs(self.vertices, verticeInicio - 1)
 
-    def mostrarProfundidade(self):
-        for vertice in self.vertices:
-            print('Profundidade do Vertice ',
-                  vertice.getVertice(), ': ', vertice.getProfundidade())
+    def topologia(self, verticeInicio: int):
+        self.__resetGrafo()
+        Topologica(self.vertices, verticeInicio - 1)
 
-    '''--------------------------------------------------------
-        como a lista começa em 0 e os vértices em 1,
-        para achar a localização dos vértices na lista será n - 1
-        -------------------------------------------------------'''
+    def prim(self, verticeInicio: int):
+        self.__resetGrafo()
+        Prim(self.vertices, verticeInicio - 1)
 
-    def setProfundidade(self, vertice: int, profundidade: int, flag='default') -> None:
-        if flag == 'default':
-            self.vertices[vertice - 1].setProfundidade(profundidade)
-
-        # usado no dfs
-        if flag == 'ida':
-            self.vertices[vertice - 1].setProfundidade([profundidade, inf])
-
-        if flag == 'volta':
-            self.vertices[vertice - 1].setProfundidade(profundidade, 'volta')
-
-    def getProfundidade(self, vertice: int, flag='default') -> int:
-        if flag == 'default':
-            return self.vertices[vertice - 1].getProfundidade()
-
-        if flag == 'volta':
-            return self.vertices[vertice - 1].getProfundidade('volta')
-
-    def getAdjacentes(self, vertice: int) -> list:
-        return self.vertices[vertice - 1].getAresta()
-
-    def getVertice(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].getVertice()
-
-    def resetGrafo(self):
-        for vertice in range(self.qtdVertices):
-            self.setProfundidade(vertice, inf)
-
-    def setPai(self, vertice: int, pai: int) -> None:
-        self.vertices[vertice - 1].pai = pai
-
-    def getPai(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].pai
-
-    def setFilho(self, vertice: int, filho: int) -> None:
-        self.vertices[vertice - 1].filho = filho
-
-    def getFilho(self, vertice: int) -> int:
-        return self.vertices[vertice - 1].filho
+    def __resetGrafo(self):
+        for posicao in range(self.qtdVertices):
+            self.vertices[posicao].setProfundidade(inf)
+            self.vertices[posicao].setPai(inf)
+            self.vertices[posicao].setFilho(inf)

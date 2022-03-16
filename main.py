@@ -5,19 +5,37 @@ from prim import Prim
 from topologica import Topologica
 from prim2 import Prim2
 
+'''
+    DESENVOLVEDORES:
+
+        Álvaro de Araújo    ra 120113
+        Rômulo Barreto      ra 117774
+
+
+    Trabalho I de Grafos em Super Mario World
+    Professor Felippe Fernandes da Silva
+
+'''
 
 g = Grafo()
-# bfs = Bfs(g, 53)
-# g.mostrarProfundidade()
 
-# print()
 
-# dfs = Dfs(g, 53)
-# dfs.mostrar()
+g.bfs(53)
 
-# print()
 
-# topologica = Topologica(g, 53)
-# topologica.mostrar()
+input('\nPressione enter para continuar \n')
 
-Prim2(g, 1, 53)
+
+g.dfs(53)
+
+
+input('\nPressione enter para continuar \n')
+
+
+g.topologia(53)
+
+
+input('\nPressione enter para continuar \n')
+
+
+g.prim(53)

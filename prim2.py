@@ -11,31 +11,6 @@ class Prim2:
         queue = max(queue)
         grafo.setFilho(aux, queue)
 
-        # grafo.setPai(queue, aux)
-        # aux = queue
-        # queue = grafo.getAdjacentes(queue)
-        # if grafo.getPai(aux) in queue:
-        #     queue.remove(aux)
-        # queue = max(queue)
-
-        # grafo.setPai(queue, aux)
-        # aux = queue
-        # queue = grafo.getAdjacentes(queue)
-        # if grafo.getPai(aux) in queue:
-        #     queue.remove(aux)
-        # queue = max(queue)
-
-        # print(queue)
-
-        # cont = 1
-        # while queue:
-
-        #     queue = grafo.getAdjacentes(queue)
-        #     if aux in queue:
-        #         queue.remove(aux)
-        #     queue = max(queue)
-        #     aux = queue
-
         while queue:
             grafo.setPai(queue, aux)
             aux = queue
@@ -56,7 +31,3 @@ class Prim2:
                 aux = grafo.vertices[aux - 1].getFilho()
             else:
                 aux = 0
-
-        # for vertice in grafo.vertices:
-        #     print(vertice.getVertice(), ' : ',
-        #           vertice.getPai(), ' : ', vertice.getFilho())

@@ -6,27 +6,14 @@ class Vertice:
         self.__profundidade = inf
         self.__vertice = vertice
         self.__aresta = []
-        self.pai = inf
-        self.filho = inf
+        self.__pai = inf
+        self.__filho = inf
 
-    def setPai(self, pai: int) -> None:
-        self.pai = pai
-
-    def getPai(self) -> int:    
-        return self.pai
-
-    def setFilho(self, filho: int) -> None:
-        self.filho = filho
-
-    def getFilho(self) -> int:    
-        return self.filho
-
-
-    def setAresta(self, u: int) -> None:
-        self.__aresta.append(u)
+    def setAresta(self, u: int, peso: int) -> None:
+        self.__aresta.append([u, peso])
 
     def getAresta(self) -> list:
-        return self.__aresta
+        return [i[0] for i in self.__aresta]
 
     def getVertice(self) -> int:
         return self.__vertice
@@ -37,7 +24,7 @@ class Vertice:
 
         # usado no dfs
         if flag == 'ida':
-            self.__profundidade[0] = profundidade
+            self.__profundidade = [profundidade, inf]
 
         if flag == 'volta':
             self.__profundidade[1] = profundidade
@@ -48,3 +35,15 @@ class Vertice:
 
         if flag == 'volta':
             return self.__profundidade[1]
+
+    def setPai(self, pai: int) -> None:
+        self.__pai = pai
+
+    def getPai(self) -> int:
+        return self.__pai
+
+    def setFilho(self, filho: int) -> None:
+        self.__filho = filho
+
+    def getFilho(self) -> int:
+        return self.__filho
