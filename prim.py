@@ -1,4 +1,6 @@
 from cmath import inf
+from numpy import array, unique, amax, min, argwhere, delete
+from sympy import inverse_laplace_transform
 
 
 class Prim:
@@ -9,18 +11,28 @@ class Prim:
         vertices[posicao].setPai(-1)
 
         while fila:
-            fila = vertices[posicao].getAresta()
+            fila = array(vertices[posicao].getArestaPeso())
 
             if vertices[posicao].getPai() in fila:
-                fila.remove(vertices[posicao].getPai())
+                index = argwhere(vertices[posicao].getPai() == fila[:, 0])
+                fila = delete(fila, index, 0)
 
             if len(fila) != 0:
-                fila = max(fila)
+                fila = self.conferirMenorPeso(fila)
                 vertices[posicao].setFilho(fila)
                 vertices[fila - 1].setPai(posicao + 1)
                 posicao = fila - 1
 
         self.mostrar(vertices)
+
+    def conferirMenorPeso(self, fila: list) -> int:
+
+        if len(unique(fila[:, 1])) != 1:
+            fila = fila[fila[:, 1] == min(fila[:, 1], axis=0)]
+            return amax(fila[:, 0], axis=0)
+
+        else:
+            return amax(fila[:, 0], axis=0)
 
     def mostrar(self, vertices: list):
 

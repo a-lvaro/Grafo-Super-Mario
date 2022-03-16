@@ -15,6 +15,12 @@ class Vertice:
     def getAresta(self) -> list:
         return [i[0] for i in self.__aresta]
 
+    def getPeso(self) -> list:
+        return [i[1] for i in self.__aresta]
+
+    def getArestaPeso(self) -> list:
+        return self.__aresta
+
     def getVertice(self) -> int:
         return self.__vertice
 
