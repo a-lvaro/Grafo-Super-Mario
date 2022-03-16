@@ -7,8 +7,8 @@ from topologica import Topologica
 '''
     DESENVOLVEDORES:
 
-        Álvaro de Araújo    ra 120113
-        Rômulo Barreto      ra 117477
+        Álvaro de Araújo   ( a-lvaro )
+        Rômulo Barreto     ( Rac1805 )
 
 
     Trabalho I de Grafos em Super Mario World

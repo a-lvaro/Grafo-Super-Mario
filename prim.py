@@ -12,7 +12,7 @@ class Prim:
         while fila:
             fila = array(vertices[posicao].getArestaPeso())
 
-            if vertices[posicao].getPai() in fila:
+            if vertices[posicao].getPai() in fila[:, 0]:
                 index = argwhere(vertices[posicao].getPai() == fila[:, 0])
                 fila = delete(fila, index, 0)
 
