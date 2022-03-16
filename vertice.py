@@ -5,21 +5,21 @@ class Vertice:
     def __init__(self, vertice) -> None:
         self.__profundidade = inf
         self.__vertice = vertice
-        self.__aresta = []
+        self.__adjacentesPesos = []
         self.__pai = inf
         self.__filho = inf
 
     def setAresta(self, u: int, peso: int) -> None:
-        self.__aresta.append([u, peso])
+        self.__adjacentesPesos.append([u, peso])
 
     def getAresta(self) -> list:
-        return [i[0] for i in self.__aresta]
+        return [i[0] for i in self.__adjacentesPesos]
 
     def getPeso(self) -> list:
-        return [i[1] for i in self.__aresta]
+        return [i[1] for i in self.__adjacentesPesos]
 
     def getArestaPeso(self) -> list:
-        return self.__aresta
+        return self.__adjacentesPesos
 
     def getVertice(self) -> int:
         return self.__vertice
