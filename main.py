@@ -3,13 +3,12 @@ from bfs import Bfs
 from dfs import Dfs
 from prim import Prim
 from topologica import Topologica
-from prim2 import Prim2
 
 '''
     DESENVOLVEDORES:
 
         Álvaro de Araújo    ra 120113
-        Rômulo Barreto      ra 117774
+        Rômulo Barreto      ra 117477
 
 
     Trabalho I de Grafos em Super Mario World
@@ -20,19 +19,22 @@ from prim2 import Prim2
 g = Grafo()
 
 
-g.bfs(53)
+# g.bfs(53)
 
 
-input('\nPressione enter para continuar \n')
+# input('\nPressione enter para continuar \n')
 
 
-g.dfs(53)
+# g.dfs(53)
 
 
-input('\nPressione enter para continuar \n')
+# input('\nPressione enter para continuar \n')
 
 
-g.topologia(53)
+# g.topologia(53)
 
 
-input('\nPressione enter para continuar \n')
+# input('\nPressione enter para continuar \n')
+
+
+g.prim(53)

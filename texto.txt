@@ -4,8 +4,8 @@
 - [x] busca em largura
 - [x] busca em profundidade
 - [x] busca topológica
-- [ ] kruskal ou prim
-- [ ] relatório
+- [x] kruskal ou prim
+- [x] relatório
 
 
 # Ideias
