@@ -36,6 +36,3 @@ g.topologia(53)
 
 
 input('\nPressione enter para continuar \n')
-
-
-g.prim(53)
