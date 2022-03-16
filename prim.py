@@ -1,6 +1,5 @@
 from cmath import inf
 from numpy import array, unique, amax, min, argwhere, delete
-from sympy import inverse_laplace_transform
 
 
 class Prim:
