@@ -25,13 +25,10 @@ class Prim:
         self.mostrar(vertices)
 
     def conferirMenorPeso(self, fila: list) -> int:
-
-        if len(unique(fila[:, 1])) != 1:
-            fila = fila[fila[:, 1] == min(fila[:, 1], axis=0)]
-            return amax(fila[:, 0], axis=0)
-
-        else:
-            return amax(fila[:, 0], axis=0)
+        # menor peso
+        fila = fila[fila[:, 1] == min(fila[:, 1], axis=0)]
+        # maior vértice
+        return amax(fila[:, 0], axis=0)
 
     def mostrar(self, vertices: list):
 
